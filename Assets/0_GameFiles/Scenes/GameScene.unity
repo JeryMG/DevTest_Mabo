@@ -374,8 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa6508387189f44cbed555109edc49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionOffset: {x: 0, y: 2, z: 1}
-  eulerAnglesOffset: {x: 25, y: 0, z: 0}
+  positionOffset: {x: 0, y: 6, z: 1}
+  eulerAnglesOffset: {x: 65, y: 0, z: 0}
   lerpSpeed: 12
   xDiv: 2
 --- !u!1 &1698970731
