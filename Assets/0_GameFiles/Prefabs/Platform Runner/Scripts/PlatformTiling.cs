@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlatformTiling : MonoBehaviour
 {
-    void Start()
+    public float tilingValue = 5f;
+    
+    void Update()
     {
-        GetComponent<MeshRenderer>().materials[1].mainTextureScale = new Vector2(transform.localScale.x * 5f, 0f);
+        GetComponent<MeshRenderer>().materials[1].mainTextureScale = new Vector2(transform.localScale.x * tilingValue, 0f);
     }
 }

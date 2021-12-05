@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
 	public LevelSettings levelSettings;
 
 	public Transform gameContainer;
+
+	public LevelVariables levelVariables;
 	
 	#endregion
 
@@ -39,7 +41,9 @@ public class LevelManager : MonoBehaviour
 		int _currentLevel = levelSettings.currentLevel;
 		DestroyPastLevel();
 
-		Instantiate(levelSettings.GetLevel(), gameContainer);
+		var newLevel = Instantiate(levelSettings.GetLevel(), gameContainer);
+
+		levelVariables = newLevel.GetComponent<LevelVariables>();
 
 		GameManager.Instance.LevelCreated();
 	}

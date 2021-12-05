@@ -24,7 +24,6 @@ public class playerController : MonoBehaviour
     private Vector2 inputStartPos;
     private bool isArrived;
 
-
     private void Awake()
     {
         Instance = this;
@@ -38,7 +37,9 @@ public class playerController : MonoBehaviour
         Controller.OnTouchEnter += Controller_OnTouchEnter;
         Controller.OnTouchDrag += Controller_OnTouchDrag;
         Controller.OnTouchRelease += Controller_OnTouchRelease;
+        
         GameManager.Instance.StartGame();
+        //SetModeVoid();
     }
 
 
@@ -51,14 +52,6 @@ public class playerController : MonoBehaviour
         }
 
         DoAction?.Invoke();
-        
-        // Reference gameplay
-        // if (Input.GetKeyDown(KeyCode.Keypad1))
-        // {
-        //     startLookAt = true;
-        // }
-        //
-        // SwitchTarget();
     }
 
     private GameObject GetClosestEnemy()
@@ -85,12 +78,15 @@ public class playerController : MonoBehaviour
     
     private void GameManager_OnGameStart()
     {
+        //Debug.Log("Lets gooooooooooo");
         SetModeMove();
+        GetComponent<ShootingSystem>().isShooting = true;
     }
 
     private void GameManager_OnGameEnd(bool _success)
     {
         SetModeVoid();
+        GetComponent<ShootingSystem>().isShooting = false;
     }
     
     public void SetModeMove()
@@ -127,7 +123,7 @@ public class playerController : MonoBehaviour
         if (controller.enabled)
             controller.SimpleMove(new Vector3(direction.x, direction.y, direction.z * currentSpeed));
         
-        Debug.Log(direction.x);
+        //Debug.Log(direction.x);
         //transform.Translate(new Vector3(direction.x, direction.y, direction.z * currentSpeed));
     }
     
