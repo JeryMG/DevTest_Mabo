@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa6508387189f44cbed555109edc49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionOffset: {x: 0, y: 6, z: 1}
+  positionOffset: {x: 0, y: 4.21, z: -1.2}
   eulerAnglesOffset: {x: 60, y: 0, z: 0}
   lerpSpeed: 12
   xDiv: 2
@@ -449,6 +449,7 @@ MonoBehaviour:
   levelSettings: {fileID: 11400000, guid: 1bab74c8afaa84546a4eac4d3df009a3, type: 2}
   gameContainer: {fileID: 2034444618}
   levelVariables: {fileID: 0}
+  _SaveVariables: {fileID: 11400000, guid: eb51837ff4dedb64c84313f015f52ae9, type: 2}
 --- !u!114 &1896734881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,8 +504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fad27ecefefd142bc57a3e17b9a0d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 0}
   _projectilePrefab: {fileID: 3640042461117532369, guid: a7cd8cd4abba5d84c90bd3d3b7beb8bc, type: 3}
+  particlePrefab: {fileID: -8989280343600807402, guid: dddc7b1930f161e4ebdc27a4fc68bcc6, type: 3}
 --- !u!1 &2034444617
 GameObject:
   m_ObjectHideFlags: 0

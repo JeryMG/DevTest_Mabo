@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
 	public Transform gameContainer;
 
 	public LevelVariables levelVariables;
+
+	public SaveVariables _SaveVariables;
 	
 	#endregion
 

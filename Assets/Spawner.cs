@@ -10,7 +10,9 @@ public class Spawner : MonoBehaviour
     
     private LevelManager _levelManager;
     public ObjectPool<ShipProjectile> _pool;
+    public ObjectPool<shipMuzzleParticle> _particlesPool;
     public ShipProjectile _projectilePrefab;
+    public shipMuzzleParticle particlePrefab;
 
     private void Awake()
     {
@@ -28,6 +30,21 @@ public class Spawner : MonoBehaviour
             OnDestroy, 
             false,
             20,40 );
+
+        _particlesPool = new ObjectPool<shipMuzzleParticle>(() =>
+            {
+                return Instantiate(particlePrefab, transform);
+            }, part =>
+            {
+                part.transform.position = _levelManager.levelVariables.ShipFrontPoint.position;
+                part.gameObject.SetActive(true);
+            }, part =>
+            {
+                part.gameObject.SetActive(false);
+            }, part =>
+            {
+                Destroy(part.gameObject);
+            }, false, 5,10);
     }
 
     private void OnGameStart()

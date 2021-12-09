@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8774494750719289458}
   - component: {fileID: 7250706160916721979}
   - component: {fileID: 3640042461117532369}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Projectile
   m_TagString: Missile
   m_Icon: {fileID: 0}
@@ -113,4 +113,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 80
   damage: 1
-  lifetime: 5
+  lifetime: 0.5

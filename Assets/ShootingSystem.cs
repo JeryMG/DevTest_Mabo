@@ -36,6 +36,7 @@ public class ShootingSystem : MonoBehaviour
 
     void Shoot()
     {
+        Spawner.instance._particlesPool.Get();
         Spawner.instance._pool.Get();
     }
 
