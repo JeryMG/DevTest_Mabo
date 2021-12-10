@@ -25,7 +25,7 @@ public class Controller : MonoBehaviour
     private Vector2 startMousePos;
     private Vector2[] currentMousePos;
 
-    //private int fingerID = -1;
+    private int fingerID = -1;
     private Touch touchInput;
 
     private float currentDistanceStartToDrag;
