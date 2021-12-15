@@ -13,6 +13,7 @@ public class LevelVariables : MonoBehaviour
     public Transform ShipLeftPoint;
 
     public int enemiesInLevel = 0;
+    [HideInInspector]public List<Enemy> enemies = new List<Enemy>();
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class LevelVariables : MonoBehaviour
 
     private void Start()
     {
+        enemies = FindObjectsOfType<Enemy>().ToList();
         enemiesInLevel = FindObjectsOfType<Enemy>().ToList().Count;
     }
 
