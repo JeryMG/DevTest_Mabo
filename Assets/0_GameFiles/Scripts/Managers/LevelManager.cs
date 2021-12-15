@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,6 +60,8 @@ public class LevelManager : MonoBehaviour
 	{
 		if (isVictory)
 			ProgressToNextLevel();
+		
+		CreateCurrentLevel(isVictory);
 	}
 
 	protected void DestroyPastLevel()
@@ -67,6 +70,11 @@ public class LevelManager : MonoBehaviour
 		{
 			DestroyImmediate(gameContainer.GetChild(i).gameObject);
 		}
+	}
+
+	private void OnApplicationQuit()
+	{
+		_SaveVariables.ClearSave();
 	}
 }
 

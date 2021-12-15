@@ -6,32 +6,30 @@ using UnityEngine;
 
 public class LevelVariables : MonoBehaviour
 {
+    public static LevelVariables instance;
+    
     public Transform ShipFrontPoint;
     public Transform ShipRightPoint;
     public Transform ShipLeftPoint;
 
     public int enemiesInLevel = 0;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         enemiesInLevel = FindObjectsOfType<Enemy>().ToList().Count;
-        GameManager.OnGameEnd += CheckWin;
     }
 
-    private void CheckWin(bool b)
+    public void CheckWin()
     {
-        if (b)
+        if (enemiesInLevel == 0)
         {
-            if (enemiesInLevel == 0)
-            {
-                GameManager.Instance.EndGame(true);
-                LevelManager.Instance.CreateCurrentLevel(true);
-            }
+            GameManager.Instance.EndGame(true);
+            //LevelManager.Instance.CreateCurrentLevel(true);
         }
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.OnGameEnd -= CheckWin;
     }
 }

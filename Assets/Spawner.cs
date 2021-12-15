@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
             CreateProjectile, 
             OnTakeFromPool,
             OnReturnToPool,
-            OnDestroy, 
+            OnDestroySpawned, 
             false,
             20,40 );
 
@@ -69,7 +69,7 @@ public class Spawner : MonoBehaviour
         projectile.gameObject.SetActive(false);
     }
 
-    private void OnDestroy(ShipProjectile projectile)
+    private void OnDestroySpawned(ShipProjectile projectile)
     {
         Destroy(projectile);
     }

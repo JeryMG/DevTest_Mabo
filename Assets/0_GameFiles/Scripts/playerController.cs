@@ -86,7 +86,7 @@ public class playerController : MonoBehaviour
     private void GameManager_OnGameEnd(bool _success)
     {
         SetModeVoid();
-        GetComponent<ShootingSystem>().isShooting = false;
+        //GetComponent<ShootingSystem>().isShooting = false;
     }
     
     public void SetModeMove()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -17,6 +18,8 @@ public class ProgressionManager : MonoBehaviour
     [SerializeField] private float expToNextLV;
     public List<float> expTresholds = new List<float>();
     private int tresholdId = 1;
+    
+    [SerializeField] private TMP_Text expRewardtext;
 
     private void Start()
     {
@@ -33,11 +36,24 @@ public class ProgressionManager : MonoBehaviour
         {
             //level up
             LevelUP();
-            //update UI gauge
-            UpdateGaugeUI();
             //Update next treshold value
             expToNextLV = expTresholds[tresholdId];
         }
+        
+        //Update gauge UI
+        UpdateGaugeUI();
+        
+        expRewardtext.transform.DOKill();
+        expRewardtext.text = "+"+ amount + "EXP";
+        expRewardtext.gameObject.SetActive(true);
+        expRewardtext?.transform.DOLocalMoveY(2.5f,0.3f)
+            .OnComplete(()=>
+            {
+                expRewardtext.gameObject.SetActive(false);
+                expRewardtext.transform.localPosition = new Vector3(0, 2, 0);
+                LevelVariables.instance.enemiesInLevel--;
+                LevelVariables.instance.CheckWin();
+            });
     }
 
     private void LevelUP()
@@ -61,10 +77,13 @@ public class ProgressionManager : MonoBehaviour
     public void Init()
     {
         currentShipLevel = LevelManager.Instance._SaveVariables.shipLevel;
-        currentEXP = LevelManager.Instance._SaveVariables.currentExp;
-        expToNextLV = LevelManager.Instance._SaveVariables.expToNextLv;
-
         tresholdId = currentShipLevel - 1;
+        
+        currentEXP = LevelManager.Instance._SaveVariables.currentExp;
+        expToNextLV = expTresholds[tresholdId];
+
+        UpdateLvText();
+        UpdateGaugeUI();
     }
 
     public void SaveVariables(bool b)
