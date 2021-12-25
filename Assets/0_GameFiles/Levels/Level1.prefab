@@ -215,7 +215,6 @@ MonoBehaviour:
   hp: 3
   expReward: 1
   HPtext: {fileID: 2187875995146371525}
-  expRewardtext: {fileID: 8854839943037211724}
   impactParticles: {fileID: 163420, guid: acee4f4e191fea8479aad0b4b8e1dc18, type: 3}
   deathParticles: {fileID: 111992, guid: ef697b4cb271b7642af97a1a70394631, type: 3}
 --- !u!1 &806821087425064970
@@ -691,7 +690,6 @@ MonoBehaviour:
   hp: 3
   expReward: 1
   HPtext: {fileID: 5142344756823603309}
-  expRewardtext: {fileID: 7932795677154109558}
   impactParticles: {fileID: 163420, guid: acee4f4e191fea8479aad0b4b8e1dc18, type: 3}
   deathParticles: {fileID: 111992, guid: ef697b4cb271b7642af97a1a70394631, type: 3}
 --- !u!1 &2705568509168995119
@@ -1037,6 +1035,7 @@ MonoBehaviour:
   ShipRightPoint: {fileID: 9049424779267885839}
   ShipLeftPoint: {fileID: 2786624569047273727}
   enemiesInLevel: 0
+  enemies: []
 --- !u!1 &7786530907931300829
 GameObject:
   m_ObjectHideFlags: 0

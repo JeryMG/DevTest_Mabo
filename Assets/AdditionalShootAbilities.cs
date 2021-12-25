@@ -9,22 +9,36 @@ public class AdditionalShootAbilities : ShipProjectile
     private Transform target;
     public Transform firePoint;
 
-    public LineRenderer lr;
+    private LineRenderer lr;
 
     private void Start()
     {
-        InvokeRepeating("UpdateTarget",0f,0.5f);
+        lr = GetComponentInChildren<LineRenderer>();
+        InvokeRepeating("UpdateTarget",0f,0.25f);
     }
 
     private void Update()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            if (lr.enabled)
+            {
+                lr.enabled = false;
+            }
+            return;
+        }
         
+        LockOnTarget();
     }
 
     void LockOnTarget()
     {
-        
+        if (!lr.enabled)
+        {
+            lr.enabled = true;
+        }
+        lr.SetPosition(0, firePoint.position);
+        lr.SetPosition(1, target.position);
     }
 
     void UpdateTarget()
@@ -45,6 +59,10 @@ public class AdditionalShootAbilities : ShipProjectile
         if (closest != null && shortestDistance <= range)
         {
             target = closest.transform;
+        }
+        else
+        {
+            target = null;
         }
     }
 }
